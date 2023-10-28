@@ -18,7 +18,7 @@ export const ctrlGetLogin = (req, res) => {
 
 /*export const ctrlGetLogin = (req, res) => {
     try {
-        throw new Error('BROKEN') 
+        throw new Error('BROKEN') // modelo para forzar errores
     } catch (error) {
         console.error(error)
         return res.status(500).json({
@@ -31,7 +31,9 @@ export const ctrlGetLogin = (req, res) => {
 
 export const ctrlPostLogin = (req, res) => {
     try {
-        //res.status(200)
+        console.log(req.body)
+        loginUser.push(req.body)
+        //res.status(201)
         res.send('Got a POST request')
     } catch (error) {
         console.error(error)

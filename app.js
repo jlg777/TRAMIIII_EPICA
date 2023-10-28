@@ -4,8 +4,8 @@ import { loginRouter } from './src/routes/login.routes.js';
 const app = express();
 const port = 3000;
 
-
-
+//midleware
+app.use(express.json());
 
 app.use('/', loginRouter);
 
