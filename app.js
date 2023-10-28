@@ -1,8 +1,8 @@
 import express from 'express';
 import { loginRouter } from './src/routes/login.routes.js';
 
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
 
 
