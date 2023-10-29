@@ -7,9 +7,9 @@ const port = 3000;
 //midleware
 app.use(express.json());
 
+app.use(express.static('public'));
+
 app.use('/', loginRouter);
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
