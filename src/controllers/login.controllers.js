@@ -2,6 +2,7 @@
 import { loginUser } from "../models/login-model.js"; 
 
 
+
 export const ctrlGetLogin = (req, res, next) => {
     try {
         res.status(200).json(loginUser)
