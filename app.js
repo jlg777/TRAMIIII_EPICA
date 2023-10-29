@@ -2,9 +2,9 @@ import express from 'express';
 import { loginRouter } from './src/routes/login.routes.js';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-//import morgan from 'morgan';
-//import  cors  from 'cors';
-//import  helmet  from 'helmet';
+//import morgan from 'morgan'; // configuracion 'dev' devuelve llamadas http con info
+//import  cors  from 'cors'; // comunicacion de distintos servidores
+//import  helmet  from 'helmet'; // protege las llamadas htttp de sitios o de scrpits
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
