@@ -2,70 +2,55 @@
 import { loginUser } from "../models/login-model.js"; 
 
 
-export const ctrlGetLogin = (req, res) => {
+export const ctrlGetLogin = (req, res, next) => {
     try {
         res.status(200).json(loginUser)
     } catch (error) {
-        console.error(error)
-        return res.status(500).json({
-            message: 'Error Server'
-        })
+        next(error)
     } finally {
         //console.log('')
     }
-};
+}
 
 
-/*export const ctrlGetLogin = (req, res) => {
+/*export const ctrlGetLogin = (req, res, next) => {
     try {
         throw new Error('BROKEN') // modelo para forzar errores
     } catch (error) {
-        console.error(error)
-        return res.status(500).json({
-            message: 'Error Server'
-        })
+        next(error)
     } finally {
         //console.log('')
     }
 };*/
 
-export const ctrlPostLogin = (req, res) => {
+export const ctrlPostLogin = (req, res, next) => {
     try {
-        console.log(req.body)
-        loginUser.push(req.body)
+       console.log(req.body)
+       loginUser.push(req.body)
         //res.status(201)
         res.send('Got a POST request')
     } catch (error) {
-        console.error(error)
-        return res.status(500).json({
-            message: 'Error Server'
-        })
+        next(error)
     } finally {
         //console.log('')
     }
 };
 
-export const ctrlPutLogin =  (req, res) => {
+export const ctrlPutLogin =  (req, res, next) => {
     try {
         res.send('Got a PUT request at /user')
     } catch (error) {
-        console.error(error)
-        return res.status(500).json({
-            message: 'Error Server'
-        })   
+        next(error)   
     } finally {
         //console.log('')
     }
 };
 
-export const ctrlDelLogin =  (req, res) => {
+export const ctrlDelLogin =  (req, res, next) => {
     try {
         res.send('Got a DELETE request at /user')
     } catch (error) {
-        console.error(error)
-        return res.status(500).json({
-            message: 'Error Server'
-        })    
+        next(error)    
     }finally {
         //console.log('')
     }

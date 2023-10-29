@@ -1,15 +1,16 @@
 import { Router } from "express";
 import { ctrlGetLogin, ctrlPostLogin, ctrlPutLogin, ctrlDelLogin } from "../controllers/login.controllers.js";
+import { loginErrorHandler } from "../errorHandler/login.error.js";
 
 
 const loginRouter = Router();
 
-loginRouter.get('/', ctrlGetLogin)
+loginRouter.get('/', ctrlGetLogin, loginErrorHandler)
 
-loginRouter.post('/', ctrlPostLogin)
+loginRouter.post('/', ctrlPostLogin, loginErrorHandler)
 
-loginRouter.put('/user', ctrlPutLogin) 
+loginRouter.put('/user', ctrlPutLogin, loginErrorHandler) 
 
-loginRouter.delete('/user', ctrlDelLogin)
+loginRouter.delete('/user', ctrlDelLogin, loginErrorHandler)
 
 export { loginRouter }
