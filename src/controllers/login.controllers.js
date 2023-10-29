@@ -5,13 +5,13 @@ import { loginUser } from "../models/login-model.js";
 export const ctrlGetLogin = (req, res, next) => {
     try {
         res.status(200).json(loginUser)
+        //res.sendFile('index.html')
     } catch (error) {
         next(error)
     } finally {
         //console.log('')
     }
-}
-
+};
 
 /*export const ctrlGetLogin = (req, res, next) => {
     try {
@@ -55,3 +55,6 @@ export const ctrlDelLogin =  (req, res, next) => {
         //console.log('')
     }
 };
+
+
+
