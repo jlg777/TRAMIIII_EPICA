@@ -1,12 +1,13 @@
 export const loginUser =  [
     {
-        user: "correo@domain.com",
-        pass:"",
-        image:""
+        id: Date.now(),
+        name: "correo@domain.com",
+        email:"",
+        pass:""
     },
     {
-        user: "correo@domain.com",
-        pass:"",
-        image:""
+        name: "correo@domain.com",
+        email:"",
+        pass:""
     }
  ] 

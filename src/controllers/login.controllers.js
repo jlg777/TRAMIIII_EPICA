@@ -14,6 +14,22 @@ export const ctrlGetLogin = (req, res, next) => {
     }
 };
 
+
+export const ctrlGetLoginId = (req, res, next) => {
+    try {
+        const {logid} = req.params
+            console.log(logid)
+            console.log(loginUser)
+        //const login = loginUser.find(logid);
+        //return res.status(200).json(login)
+        //res.sendFile('index.html')
+    } catch (error) {
+        next(error)
+    } finally {
+        //console.log('')
+    }
+};
+
 /*export const ctrlGetLogin = (req, res, next) => {
     try {
         throw new Error('BROKEN') // modelo para forzar errores

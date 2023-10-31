@@ -5,12 +5,13 @@ import path from 'node:path';
 //import morgan from 'morgan'; // configuracion 'dev' devuelve llamadas http con info
 //import  cors  from 'cors'; // comunicacion de distintos servidores
 //import  helmet  from 'helmet'; // protege las llamadas htttp de sitios o de scrpits
+import { env } from "./settings/envs.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = 3000;
+const port = env.PORT;
 
 //midleware
 app.use(express.json());

@@ -7,7 +7,8 @@ export const createLoginSchema = [
     body('pass')
     .notEmpty().withMessage('Pass no debe estar vacio'),
     body('image')
-    .notEmpty().withMessage('Image no debe estar vacio'),
+    .notEmpty().withMessage('Image no debe estar vacio')
+    .isURL().withMessage('Image debe ser una URL'),
     
 ];
 
