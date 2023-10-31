@@ -1,3 +1,6 @@
+
+let listUser = [];
+
 export const loginUser =  [
     {
         id: Date.now(),
@@ -10,4 +13,19 @@ export const loginUser =  [
         email:"",
         pass:""
     }
- ] 
+ ];
+
+ const createNewUser = ({ name, email, pass }) => {
+    if (!name) return null;
+  
+    const newLogin = { id: Date.now(), name, email, pass };
+  
+    loginUser.push(newLogin);
+  
+    return newLogin;
+  };
+
+
+  export const emailModel = {
+    create: createNewUser,
+  };
