@@ -1,12 +1,15 @@
 //importo provisoriamente
 import { userModel } from "../models/login-model.js"; 
+import  jwt  from "jsonwebtoken";
 
 export const ctrlPostLogin = (req, res, next) => {
     try {
-       console.log(req.body)
-       userModel.create(req.body)
+       console.log(req.body);
+       userModel.create(req.body);
+       const token = jwt.sign({ id: userModel.id }, "secret");
+       res.status(201).json({ token });
         //res.status(201)
-        res.send('Got a POST request')
+        //res.send('Got a POST request')
     } catch (error) {
         next(error)
     } finally {

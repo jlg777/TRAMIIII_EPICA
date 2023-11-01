@@ -1,6 +1,9 @@
+import { v4 as uuid} from "uuid" ;
+
+
 let listUser = [
     {
-        id: 123,
+        id: uuid(),
         name: "correo@domain.com",
         email:"",
         pass:""
@@ -19,12 +22,8 @@ const GetAllUsers = () => {
 };
 
 const getUserById = ({ id }) => {
-  console.log(id);
-  console.log(listUser);
-  console.log(listUser.id);
   const user = listUser.find((user) => user.id == id);
-  console.log(user);
-  console.log(user.id)
+
   return user;
 };
 

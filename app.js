@@ -6,6 +6,7 @@ import path from 'node:path';
 //import  cors  from 'cors'; // comunicacion de distintos servidores
 //import  helmet  from 'helmet'; // protege las llamadas htttp de sitios o de scrpits
 import { env } from "./settings/envs.js";
+import { userValidator } from './src/middlewares/user.validator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,7 +19,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "src", "public")));
 
-app.use('/', loginRouter);
+app.use('/', userValidator, loginRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
