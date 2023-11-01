@@ -12,7 +12,7 @@ let listUser = [
 
 const createNewUser = ({ name, email, pass }) => {
   if (!name) return null;
-  const newLogin = { id: Date.now(), name, email, pass };
+  const newLogin = { id: uuid(), name, email, pass };
   listUser.push(newLogin);
   return newLogin;
 };

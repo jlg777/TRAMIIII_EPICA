@@ -1,12 +1,14 @@
 //importo provisoriamente
+import { env } from "../../settings/envs.js";
 import { userModel } from "../models/login-model.js"; 
 import  jwt  from "jsonwebtoken";
+
 
 export const ctrlPostLogin = (req, res, next) => {
     try {
        console.log(req.body);
        userModel.create(req.body);
-       const token = jwt.sign({ id: userModel.id }, "secret");
+       const token = jwt.sign({ id: userModel.id }, env.SECRET_KEY);
        res.status(201).json({ token });
         //res.status(201)
         //res.send('Got a POST request')
