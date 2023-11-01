@@ -1,4 +1,3 @@
-
 let listUser = [
     {
         id: 123,
@@ -20,8 +19,13 @@ const GetAllUsers = () => {
 };
 
 const getUserById = ({ id }) => {
-  const post = listUser.find((post) => post.id == id);
-  return post;
+  console.log(id);
+  console.log(listUser);
+  console.log(listUser.id);
+  const user = listUser.find((user) => user.id == id);
+  console.log(user);
+  console.log(user.id)
+  return user;
 };
 
 export const userModel = {

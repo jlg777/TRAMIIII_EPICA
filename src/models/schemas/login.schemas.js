@@ -10,9 +10,9 @@ export const createLoginSchema = [
         
 ];
 
-export const editLoginSchema = [];
+//export const editLoginSchema = [];
 
-export const editPutLoginSchema = [];
+//export const editPutLoginSchema = [];
 
-export const deleteLoginSchema = [];
+//export const deleteLoginSchema = [];
 

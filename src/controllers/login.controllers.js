@@ -49,26 +49,3 @@ export const ctrlGetLoginId = (req, res, next) => {
         //console.log('')
     }
 };*/
-
-/*export const ctrlPutLogin =  (req, res, next) => {
-    try {
-        res.send('Got a PUT request at /user')
-    } catch (error) {
-        next(error)   
-    } finally {
-        //console.log('')
-    }
-};*/
-
-/*export const ctrlDelLogin =  (req, res, next) => {
-    try {
-        res.send('Got a DELETE request at /user')
-    } catch (error) {
-        next(error)    
-    }finally {
-        //console.log('')
-    }
-};*/
-
-
-
