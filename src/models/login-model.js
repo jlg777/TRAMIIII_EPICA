@@ -4,9 +4,9 @@ import { v4 as uuid} from "uuid" ;
 let listUser = [
     {
         id: uuid(),
-        name: "correo@domain.com",
-        email:"",
-        pass:""
+        name: "correo",
+        email:"correo@domain.com",
+        pass:"1234"
     },
 ];
 

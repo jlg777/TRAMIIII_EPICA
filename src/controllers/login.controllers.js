@@ -32,11 +32,13 @@ export const ctrlGetLogin = (req, res, next) => {
 
 export const ctrlGetLoginId = (req, res, next) => {
     try {
-        const { email, password } = req.body;
-        const user = userModel.findByEmail( email );
+        const { logid } = req.params;
+        console.log(logid)
+        const user = userModel.findOne( { id: logid } );
         if (!user) {
             return res.sendStatus(404);
         }
+        //res.status(201).json({ token });
         res.status(200).json(user);
     } catch (error) {
         next(error)
@@ -54,3 +56,20 @@ export const ctrlGetLoginId = (req, res, next) => {
         //console.log('')
     }
 };*/
+
+export const ctrlLoginId = (req, res, next) => {
+    try {
+        const { email, password } = req.body;
+        const user = userModel.findByEmail( email );
+        if (user.password !== password) {
+            return res.sendStatus(401);//404
+        }
+        const token = jwt.sign({ id: user.id }, env.SECRET_KEY);
+        res.status(201).json({ token });
+        //res.status(200).json(user);
+    } catch (error) {
+        next(error)
+    } finally {
+        //console.log('')
+    }  
+};
