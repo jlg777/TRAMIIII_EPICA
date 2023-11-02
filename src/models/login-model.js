@@ -27,8 +27,15 @@ const getUserById = ({ id }) => {
   return user;
 };
 
+const getUserByEmail = (email) => {
+  const user = listUser.find((user) => user.email === email);
+
+  return user;
+};
+
 export const userModel = {
   create: createNewUser,
   findAll: GetAllUsers,
   findOne: getUserById,
+  findByEmail: getUserByEmail,
 };

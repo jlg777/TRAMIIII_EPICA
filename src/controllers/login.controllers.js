@@ -32,8 +32,8 @@ export const ctrlGetLogin = (req, res, next) => {
 
 export const ctrlGetLoginId = (req, res, next) => {
     try {
-        const { logid } = req.params;
-        const user = userModel.findOne({ id: logid });
+        const { email, password } = req.body;
+        const user = userModel.findByEmail( email );
         if (!user) {
             return res.sendStatus(404);
         }
