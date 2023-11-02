@@ -4,15 +4,16 @@ import { loginErrorHandler } from "../error.handlers/login.error.js";
 import { createLoginSchema } from "../models/schemas/login.schemas.js";
 import { loginValidatorPost } from "../middlewares/login.validator.js";
 
-
+const userRouter = Router();
 const loginRouter = Router();
 
-loginRouter.get('/', ctrlGetLogin, loginErrorHandler)
+userRouter.get('/users', ctrlGetLogin, loginErrorHandler)
 
-loginRouter.get('/:logid', ctrlGetLoginId, loginErrorHandler)
+userRouter.get('/:logid', ctrlGetLoginId, loginErrorHandler)
 
-loginRouter.post('/', createLoginSchema, loginValidatorPost, ctrlPostLogin, loginErrorHandler)
+loginRouter.post('/register', createLoginSchema, loginValidatorPost, ctrlPostLogin, loginErrorHandler)
 
-loginRouter.post('/user', ctrlLoginId)
+loginRouter.post('/login', ctrlLoginId)
 
-export { loginRouter }
+export { loginRouter };
+export { userRouter };

@@ -1,5 +1,5 @@
 import express from 'express';
-import { loginRouter } from './src/routes/login.routes.js';
+import { loginRouter, userRouter } from './src/routes/login.routes.js';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 //import morgan from 'morgan'; // configuracion 'dev' devuelve llamadas http con info
@@ -19,7 +19,8 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "src", "public")));
 
-app.use('/', userValidator, loginRouter);
+app.use('/users', userValidator, userRouter);
+app.use('/user', loginRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
