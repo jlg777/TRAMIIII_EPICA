@@ -19,7 +19,8 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "src", "public")));
 
-app.use('/users', userValidator, userRouter);
+app.use('/users', userRouter);
+app.use('/userlogin', userValidator, userRouter);
 app.use('/user', loginRouter);
 
 app.listen(port, () => {

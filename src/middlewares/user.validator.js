@@ -12,7 +12,7 @@ export const userValidator = (req, res, next) => {
     const token = authorization;
     try {
        const { id } = jwt.verify(token, env.SECRET_KEY);
-       console.log(id );
+       //console.log(id );
     const user = userModel.findOne(id); 
     //console.log(user);
     //req.user = user;
