@@ -1,4 +1,5 @@
 import { v4 as uuid} from "uuid" ;
+import bcrypt from "bcrypt";
 
 
 let listUser = [
@@ -10,10 +11,17 @@ let listUser = [
     },
 ];
 
-const createNewUser = ({ name, email, pass }) => {
-  if (!name) return null;
-  const newLogin = { id: uuid(), name, email, pass };
+const createNewUser =async ({ name, email, pass }) => {
+  if (!name || !email || !pass) return null;
+  const hashedPassword = await bcrypt.hash(pass, 10); 
+  const newLogin = {
+    id: uuid(),
+    name,
+    email,
+    pass: hashedPassword,
+  };
   listUser.push(newLogin);
+  console.log(newLogin);
   return newLogin;
 };
 
