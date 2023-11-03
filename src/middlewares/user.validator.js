@@ -4,11 +4,20 @@ import { env } from "../../settings/envs.js";
 
 export const userValidator = (req, res, next) => {
     const { authorization } = req.headers;
+    //console.log(req.headers);
+    //console.log(authorization);
     if(!authorization){
         return res.sendStatus(401);
     }
     const token = authorization;
-    const { id } = jwt.verify(token, env.SECRET_KEY);
-    const user = userModel.findOne(id);
-    next();
+    try {
+       const { id } = jwt.verify(token, env.SECRET_KEY);
+       console.log(id );
+    const user = userModel.findOne(id); 
+    //console.log(user);
+    //req.user = user;
+    //console.log(req.user);
+    } catch (error) {
+        next(error);
+    }
 }

@@ -5,10 +5,10 @@ import  jwt  from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 
-export const ctrlPostLogin = (req, res, next) => {
+export const ctrlPostLogin = async (req, res, next) => {
     try {
-       userModel.create(req.body);
-       const token = jwt.sign({ id: userModel.id }, env.SECRET_KEY);
+       const newUser = await userModel.create(req.body);
+       const token = jwt.sign({ id: newUser.id }, env.SECRET_KEY);
        res.status(201).json({ token });
         //res.status(201)
         //res.send('Got a POST request')
@@ -33,7 +33,7 @@ export const ctrlGetLogin = (req, res, next) => {
 export const ctrlGetLoginId = (req, res, next) => {
     try {
         const { logid } = req.params;
-        console.log(logid)
+        //console.log(logid)
         const user = userModel.findOne( { id: logid } );
         if (!user) {
             return res.sendStatus(404);
@@ -60,14 +60,11 @@ export const ctrlGetLoginId = (req, res, next) => {
 export const ctrlLoginId = async (req, res, next) => {
     try {
         const { email, pass } = req.body;
-        console.log(pass);
         const user = userModel.findByEmail( email );
         if (!user) {
             return res.sendStatus(401);//404
         }
         const isMatch = await bcrypt.compare(pass, user.pass);
-        console.log(isMatch);
-        console.log(user.pass);
         if (!isMatch) return res.sendStatus(404);
         const token = jwt.sign({ id: user.id }, env.SECRET_KEY);
         res.status(201).json({ token });

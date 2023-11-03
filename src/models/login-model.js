@@ -6,14 +6,14 @@ const hashedPass_Admin = await bcrypt.hash(env.PASS_ADMIN, 10);
 
 let listUser = [
     {
-        id: uuid(),
+        id: "90d505ae-3b74-45b2-a618-b078080072ee",
         name: "admin",
         email:"correo_admin@domain.com",
         pass: hashedPass_Admin,
     },
 ];
 
-const createNewUser =async ({ name, email, pass }) => {
+const createNewUser = async ({ name, email, pass }) => {
   if (!name || !email || !pass) return null;
   const hashedPassword = await bcrypt.hash(pass, 10); 
   const newLogin = {
@@ -31,9 +31,10 @@ const GetAllUsers = () => {
   return [...listUser];
 };
 
-const getUserById = ({ id }) => {
+const getUserById = (id) => {
+  console.log(id); //e901ef6e-3c8c-4dc9-aea1-89ed647979c9
   const user = listUser.find((user) => user.id == id);
-
+  console.log(listUser.id);//undefined
   return user;
 };
 
