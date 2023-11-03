@@ -17,4 +17,8 @@ Este archivo describe las variables de entorno utilizadas en la aplicación. Est
 
 - `SECRET_KEY`: Clave secreta para la autenticación.
   - Valor predeterminado: secret
+
+- `PASS_ADMIN`: Clave secreta para administrador.
+  - Valor predeterminado: 12345
+
 Asegúrate de configurar estas variables de entorno correctamente en el archivo .env para que la aplicación funcione según lo esperado.

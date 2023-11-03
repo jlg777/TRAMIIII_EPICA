@@ -1,13 +1,15 @@
 import { v4 as uuid} from "uuid" ;
 import bcrypt from "bcrypt";
+import { env } from "../../settings/envs.js";
 
+const hashedPass_Admin = await bcrypt.hash(env.PASS_ADMIN, 10);
 
 let listUser = [
     {
         id: uuid(),
-        name: "correo",
-        email:"correo@domain.com",
-        pass:"1234"
+        name: "admin",
+        email:"correo_admin@domain.com",
+        pass: hashedPass_Admin,
     },
 ];
 

@@ -10,6 +10,5 @@ export const userValidator = (req, res, next) => {
     const token = authorization;
     const { id } = jwt.verify(token, env.SECRET_KEY);
     const user = userModel.findOne(id);
-    console.log(user);
     next();
 }
