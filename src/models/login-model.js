@@ -47,6 +47,6 @@ const getUserByEmail = (email) => {
 export const userModel = {
   create: createNewUser,
   findAll: GetAllUsers,
-  findOne: getUserById,
+  findOne1: getUserById,
   findByEmail: getUserByEmail,
 };

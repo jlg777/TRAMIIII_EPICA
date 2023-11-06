@@ -34,7 +34,7 @@ export const ctrlGetLoginId = (req, res, next) => {
     try {
         const { logid } = req.params;
         //console.log(logid)
-        const user = userModel.findOne( { id: logid } );
+        const user = userModel.findOne1( { id: logid } );
         if (!user) {
             return res.sendStatus(404);
         }
